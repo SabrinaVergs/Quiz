@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Você falhou como detetive</title>
+  <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+  <div class="container">
+  <h1>Game Over</h1>
+  <img src="./IMG/jake.png" alt="Jake bravo">
+  <p id="mensagem"></p>
+  <button onclick="window.location.href='index.html'">Tentar de novo</button>
+
+  <script>
+    const fase = localStorage.getItem("fase1") && !localStorage.getItem("fase2") ? 1 :
+                 localStorage.getItem("fase2") && !localStorage.getItem("fase3") ? 2 : 3;
+    const pontos = localStorage.getItem(`fase${fase}`);
+    document.getElementById("mensagem").innerText =
+      `Você fez ${pontos} pontos na Fase ${fase}. Jake Peralta diria: “Isso foi vergonhoso, meu chapa.”`;
+  </script>
+  </div>
+</body>
+</html>

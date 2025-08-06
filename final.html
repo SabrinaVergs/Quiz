@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Você venceu!</title>
+  <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+  <div class="container">
+  <h1>Parabéns, detetive!</h1>
+  <img id="imagem" src="" alt="Imagem final">
+  <p id="mensagem"></p>
+  <script>
+    const f1 = parseInt(localStorage.getItem("fase1") || 0);
+    const f2 = parseInt(localStorage.getItem("fase2") || 0);
+    const f3 = parseInt(localStorage.getItem("fase3") || 0);
+    const total = f1 + f2 + f3;
+
+    const msg = document.getElementById("mensagem");
+    const img = document.getElementById("imagem");
+
+    msg.innerText = `Você somou ${total} pontos no total!`;
+
+    if (total < 200) {
+      msg.innerText += "\nHolt: 'Nada mal. Mas ainda não é digno da insígnia dourada.'";
+      img.src = "img/ruim.png";
+    } else if (total < 300) {
+      msg.innerText += "\nHolt: 'Muito bom. Você é quase um Peralta.'";
+      img.src = "img/holt-cachorro.png";
+    } else {
+      msg.innerText += "\nHolt: 'Excelente. Você é um verdadeiro Gênio da Investigação!'";
+      img.src = "img/bom.png";
+    }
+  </script>
+
+  <button onclick="window.location.href='index.html'">Jogar novamente</button>
+  </div>
+</body>
+</html>
